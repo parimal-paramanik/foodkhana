@@ -33,6 +33,7 @@ const registerNewUser = async (req, res) => {
   };
 
 // login of  a user
+
 const loginUser = async (req, res) => {
     try {
       const { email, password } = req.body;

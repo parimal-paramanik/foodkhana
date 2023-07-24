@@ -12,7 +12,7 @@ const newFood = async (req, res) => {
             price,
             image
         });
-        console.log(newFood)
+        // console.log(newFood)
         const savedFood = await newFood.save();
 
         res.status(201).json(savedFood);
@@ -32,31 +32,30 @@ try {
 }
 
 const addToCart = async (req, res) => {
-    const { name, description, price, image, userId } = req.body;
+    const { name, description, price, image, userId,_id } = req.body;
     // console.log(req.body)
     try {
-    //   if (!name || !description || !price || !image) {
-    //     return res.status(400).send({ msg: "Provide all the details" });
-    //   }
-      
-  
-      const user = await UserModel.findOne({ _id: userId });
-  
-      user.cart.push(req.body);
-  
-      await user.save();
-  
-      return res.status(201).send({ msg: "Product added to cart" });
+        const user = await UserModel.findOne({ _id: userId });
+        const cartItem = user.cart.find(item => item._id.toString() === _id);
+        if(cartItem && user){
+          return res.status(400).send({msg:"Product already in cart"})
+        }
+        else{
+          user.cart.push({name,description,price,image,_id});
+          
+        await user.save();
+    
+        return res.status(201).send({ msg: "Product added to cart" });
+        }
     } catch (error) {
       res.status(500).send({ msg: error.message });
     }
-    console.log(req.body)
+    // console.log(req.body)
   };
   
 
 
 const removeFromCart = async(req,res)=>{
-
     const id = req.params.id;
     const {userId} = req.body
 
@@ -79,11 +78,13 @@ const removeFromCart = async(req,res)=>{
         res.status(500).send({msg:"internal server error"})
     } 
 }
+
+
 const getCart= async(req,res)=>{
     const {userId}= req.body
     try {
         const user= await UserModel.findOne({_id:userId})
-        console.log(user.cart)
+        // console.log(user.cart)
         res.send({data:user.cart})
         
     } catch (error) {
@@ -91,4 +92,52 @@ const getCart= async(req,res)=>{
     }
     
     }
-module.exports={newFood,getAllFood,addToCart,removeFromCart,getCart}
+
+
+const sortprice=async(req,res)=>{
+  try {
+    const { sort } = req.query;
+    const sortOrder = sort === 'asc' ? 1 : -1;
+    const products= await ProductModel.find().sort({price:sortOrder})
+    res.send(products)
+
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+}
+
+
+// serach products 
+const serachItems= async(req,res)=>{
+    try {
+        const {search}= req.query
+        const query = search ? {name: { $regex: search, $options: 'i' } } : {};
+        const serachedItem= await ProductModel.find(query)
+        res.send(serachedItem)
+    } catch (error) {
+        console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+    }
+}
+
+// update cards quantity
+
+const updateQuantity=async(req,res)=>{
+    try {
+        
+        const foodId= req.params.foodId
+       
+        const {userId, quantity} = req.body
+        
+        const user = await UserModel.findOne({_id:userId})
+        const cartItem = user.cart.find(item => item._id.toString() === foodId);
+        
+        cartItem.quantity= quantity
+        await user.save()
+        res.send({msg:"quantity updated"})  
+        
+    } catch (error) {
+       res.send({msg:"this is the error"})
+    }
+}
+module.exports={newFood,getAllFood,addToCart,removeFromCart,getCart,sortprice,serachItems,updateQuantity}
