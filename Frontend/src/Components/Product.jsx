@@ -111,7 +111,9 @@ function Product() {
     display: "grid",
     gridTemplateColumns: "repeat(4, 1fr)",
     textAlign: "center",
-    gap: "15px",
+    gap: "10px",
+    
+    
   }}
 >
   {foods.map(food => (

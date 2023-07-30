@@ -2,10 +2,10 @@ import React from 'react'
 import Navbar from '../Components/Navbar'
  import Cart from "../Components/Cart"
 
-const Cartpage = () => {
+const Cartpage = ({auth,propdrill}) => {
   return (
     <div>
-      <Navbar/>
+      <Navbar isAuth={auth} change= {propdrill}/>
        <Cart/>
     </div>
   )

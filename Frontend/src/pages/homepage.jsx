@@ -2,10 +2,10 @@ import React from 'react'
 import Home from '../Components/Home'
 import Navbar from '../Components/Navbar'
 
-function Homepage() {
+function Homepage({auth,propdrill}) {
   return (
     <div>
-     <Navbar/>
+     <Navbar isAuth={auth} change= {propdrill}/>
       <Home/>
     </div>
   )

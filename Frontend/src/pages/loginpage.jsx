@@ -3,11 +3,11 @@ import Navbar from '../Components/Navbar'
 import Login from '../Components/Login'
 
 
-const Loginpage = () => {
+const Loginpage = ({auth,propdrill}) => {
   return (
     <div>
-      <Navbar/>
-      <Login/>
+      <Navbar isAuth={auth} change= {propdrill}/>
+      <Login isAuth={auth} change= {propdrill}/>
     </div>
   )
 }

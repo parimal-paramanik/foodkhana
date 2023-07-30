@@ -3,7 +3,7 @@ import {useNavigate } from "react-router-dom";
 import "../Components/syles/Login.css";
 
 
-function Login() {
+function Login({isAuth,change}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
  const  navigate= useNavigate()
@@ -37,6 +37,9 @@ function Login() {
           // document.cookie = data.accessToken
           localStorage.setItem("authorization", data.accessToken)
           alert("login successfull")
+
+          change(true)
+          
           navigate("../Product")
           
         }
