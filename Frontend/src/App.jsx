@@ -1,21 +1,21 @@
 
-// import Navbar from './Components/navbar';
 import { Route,Routes } from 'react-router-dom';
-import Signup from './Components/Signup';
-import Login from './Components/Login';
-import Product from './Components/Product';
-import Home from "./Components/Home"
-import Cart from './Components/Cart';
+
+import Signuppage from './pages/signuppage';
+import Loginpage from './pages/loginpage';
+import Cartpage from './pages/cartpage';
+import Homepage from './pages/homepage';
+import Productpage from './pages/productpage';
 
 function App() {
   return (
     <div className="App">
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/product" element={<Product/>} />
-      <Route path="/cart" element={<Cart/>} />
+      <Route path="/" element={<Homepage />} />
+      <Route path="/signup" element={<Signuppage />} />
+      <Route path="/login" element={<Loginpage />} />
+      <Route path="/product" element={<Productpage/>} />
+      <Route path="/cart" element={<Cartpage/>} />
 
     </Routes>
   </div>

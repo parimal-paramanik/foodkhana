@@ -51,7 +51,7 @@ function Signup() {
   };
 
   return (
-    <div>
+    <div className="signup-cointainer">
       <form onSubmit={handleSubmit} className="signupcss">
         <label htmlFor="name">Name:</label>
         <input

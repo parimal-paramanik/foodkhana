@@ -9,7 +9,6 @@ const {UserRouter}= require("./Routers/userRouter")
 const {FoodRouter}= require("./Routers/foodRouter")
 
 // const {auth}= require("./Middleware/middleware")
-//cookie parer
 const cookieParser = require("cookie-parser")
 const expressSession = require("express-session")
 

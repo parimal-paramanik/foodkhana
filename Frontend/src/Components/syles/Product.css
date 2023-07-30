@@ -2,7 +2,9 @@
     text-align: center;
     padding: 20px;
   }
-  
+  body{
+    background-color: rgb(255, 255, 255);
+  }
   .product-page h1 {
     font-size: 32px;
     margin-bottom: 20px;

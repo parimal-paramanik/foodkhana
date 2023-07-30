@@ -106,21 +106,42 @@ function Product() {
       <button className='sortbtn' onClick={() => sortpriceASCDESC('asc')}>low to high</button> 
       <button className='sortbtn' onClick={() => sortpriceASCDESC('desc')}>high to low</button>
 
-    <div style={{display:"grid", gridTemplateColumns:"repeat(4 ,1fr)", textAlign:"center",gap:"10px"}}>
-      {foods.map(food => (
-        <div key={food.id}>
-          <img src= {food.image} alt='img' style={{width:"300px" , height:"250px"}}/>
-          <h3>{food.name}</h3>
-          <p>{food.description}</p>
-          <p>Price:$ {food.price}</p>
-          <button onClick={()=>{
-            addToCart(food)
-          }} >order now</button>
-
-          <hr />
-        </div>
-      ))}
+ <div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(4, 1fr)",
+    textAlign: "center",
+    gap: "15px",
+  }}
+>
+  {foods.map(food => (
+    <div
+      key={food.id}
+      style={{
+        padding: "10px",
+        boxSizing: "border-box",
+        transition: "box-shadow 0.3s ease-in-out", 
+        boxShadow: "0 0 5px red", 
+        borderRadius: "8px", 
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.boxShadow = "0 0 20px  blue"; 
+        e.currentTarget.style.transform = "scale(1.05)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.boxShadow = "0 0 5px rgba(0, 0, 0, 0.3)"; 
+        e.currentTarget.style.transform = "scale(1)"
+      }}
+    >
+      <img src={food.image} alt='img' style={{ width: "300px", height: "250px" }} />
+      <h3>{food.name}</h3>
+      <p>{food.description}</p>
+      <p>Price: $ {food.price}</p>
+      <button onClick={() => { addToCart(food) }}>order now</button>
     </div>
+  ))}
+</div>
+
     </div>
   );
 }

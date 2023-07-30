@@ -26,7 +26,7 @@ const Cart = () => {
         console.log(data);
         setFoods(data);
         let totalPrice= data.data.reduce((acc,item)=>{
-          acc = acc + item.price
+          acc = acc + item.price*item.quantity
               return acc
         },0)
         setPrice(totalPrice)
@@ -82,16 +82,31 @@ const Cart = () => {
 
 
   return(
-       <div  className="product-page">
+      <div  className="product-page">
     <button style={{backgroundColor:"green",color:"white"}}>Pay Now</button>
       <h1> Total money to be paid : ${price} </h1>
       
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4 ,1fr)', textAlign: 'center', gap: '10px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4 ,1fr)', textAlign: 'center', gap: '15px' }}>
         {foods?.data?.map((food,index) => (
-          <div key={index}>
+          <div key={index}
+          style={{
+            padding: "10px",
+            boxSizing: "border-box",
+            transition: "box-shadow 0.3s ease-in-out", 
+            boxShadow: "0 0 5px red", 
+            borderRadius: "8px", 
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = "0 0 10px blue"; 
+            e.currentTarget.style.transform = "scale(1.05)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = "0 0 5px rgba(0, 0, 0, 0.3)"; 
+            e.currentTarget.style.transform = "scale(1)"
+          }}
+          >
             <img src={food.image} alt="img" style={{ width: '300px', height: '250px' }} />
             <h3>{food.name}</h3>
-            {/* <p>{food.description}</p> */}
             <p>Price: $ {food.price}</p>
             <p>QNTY: {food.quantity}</p>
             <button onClick={()=>{updateQuantity( food._id,food.quantity - 1 )}} disabled= {food.quantity===1}>-</button>
