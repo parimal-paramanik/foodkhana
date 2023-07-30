@@ -99,7 +99,7 @@ function Product() {
 
   return (
     
-    <div style={{textAlign:"center"}} className='product-page'> 
+    <div style={{textAlign:"center" , marginTop:"55px"}} className='product-page'> 
     <input  type='text' value={serachProduct} onChange={handleSearch} placeholder='search products'></input>
     <button onClick={handleClickSearch}>serach</button>
 
