@@ -73,16 +73,6 @@ function Product() {
 
  function handleSearch(e){
    setSerachProduct(e.target.value)
-   
-  //  fetch(`http://localhost:8080/food/find?search=${serachProduct}`,{
-  //   method:"GET",
-  //   headers:{
-  //     "content-type":"application/json",
-  //     Authorization: authorization,
-  //   }
-  // }).then((res)=> res.json()).then((data)=> 
-  //  setFoods(data)
-  // )
  }
 
  function handleClickSearch(){
@@ -127,7 +117,7 @@ function Product() {
         height:"400px",
         // margin: "20px 3px 40px 20px"
         margin:"auto",
-        marginBottom:"30px"
+        marginBottom:"0px"
       }}
 
       onMouseEnter={(e) => { 
