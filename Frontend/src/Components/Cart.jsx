@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import Addressform from './Addressform';
 import "../Components/syles/cart.css";
 let authorization = localStorage.getItem("authorization")
 
@@ -8,6 +9,7 @@ const Cart = () => {
   const [foods, setFoods] = useState([]);
   const [quantity,setQuantity]=useState(1)
   const [price,setPrice]=useState(0)
+  const [isAddressFormOpen, setAddressFormOpen] = useState(false);
 
   useEffect(() => {
     fetchFoods();
@@ -79,11 +81,19 @@ const Cart = () => {
       console.log(error);
     });
 }
+ 
+const OpenAddressForm = ()=>{
+    // open the form 
+  setAddressFormOpen(!isAddressFormOpen)
+}
 
 
   return(
       <div  className="product-page">
-    <button style={{backgroundColor:"green",color:"white"}}>Pay Now</button>
+    <button style={{backgroundColor:"green",color:"white"}} onClick={()=>{OpenAddressForm()} } >Pay Now</button>
+    {
+      isAddressFormOpen && <Addressform/>
+    }
       <h1> Total money to be paid : ${price} </h1>
       
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', textAlign: 'center', gap: '15px' }}>
@@ -98,7 +108,8 @@ const Cart = () => {
             width:"330px",
             height:"400px",
             margin:"auto",
-            marginBottom:"30px"
+            marginBottom:"30px",
+            
           }}
           onMouseEnter={(e) => {
             // e.currentTarget.style.boxShadow = "0 0 10px blue"; 
