@@ -109,11 +109,9 @@ function Product() {
  <div
   style={{
     display: "grid",
-    gridTemplateColumns: "repeat(4, 1fr)",
+    gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
     textAlign: "center",
     gap: "10px",
-    
-    
   }}
 >
   {foods.map(food => (
@@ -127,21 +125,21 @@ function Product() {
         borderRadius: "3px", 
         width:"330px",
         height:"400px",
-        margin:"auto"
-        
+        // margin: "20px 3px 40px 20px"
+        margin:"auto",
+        marginBottom:"30px"
       }}
-      onMouseEnter={(e) => {
-        // e.currentTarget.style.boxShadow = "0 0 20px  blue"; 
+
+      onMouseEnter={(e) => { 
         e.currentTarget.style.transform = "scale(1.1)";
       }}
       onMouseLeave={(e) => {
-        // e.currentTarget.style.boxShadow = "0 0 5px rgba(0, 0, 0, 0.3)"; 
         e.currentTarget.style.transform = "scale(1)"
       }}
     >
       <img src={food.image} alt='img' style={{ width:"100%", height: "200px" }} />
       <h3>{food.name}</h3>
-      {/* <p>{food.description}</p> */}
+      
       <p>Price: $ {food.price}</p>
       <button onClick={() => { addToCart(food) }}>order now</button>
     </div>

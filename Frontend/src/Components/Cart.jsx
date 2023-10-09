@@ -86,7 +86,7 @@ const Cart = () => {
     <button style={{backgroundColor:"green",color:"white"}}>Pay Now</button>
       <h1> Total money to be paid : ${price} </h1>
       
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4 ,1fr)', textAlign: 'center', gap: '15px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', textAlign: 'center', gap: '15px' }}>
         {foods?.data?.map((food,index) => (
           <div key={index}
           style={{
@@ -97,7 +97,8 @@ const Cart = () => {
             borderRadius: "3px", 
             width:"330px",
             height:"400px",
-            margin:"auto"
+            margin:"auto",
+            marginBottom:"30px"
           }}
           onMouseEnter={(e) => {
             // e.currentTarget.style.boxShadow = "0 0 10px blue"; 

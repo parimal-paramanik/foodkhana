@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useNavigate, Navigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const Navbar = ({isAuth,change}) => {
@@ -18,12 +18,13 @@ const Navbar = ({isAuth,change}) => {
          {
 
          isAuth ? <div className='container'>
-          <button><Link to="/cart">Cart</Link></button>
-          <button><Link to="/product">Product</Link></button>
-          <button onClick={()=> change(false)}><Link to="/login">Logout</Link></button> 
+          <button><Link to="/cart" className="link-text">Cart</Link></button>
+          <button><Link to="/product" className="link-text">Product</Link></button>
+          <button onClick={()=> change(false)}><Link to="/login" className="link-text">Logout</Link></button> 
         </div> :  <div className='container'>
-          <button ><Link to="/signup">Signup</Link></button>
-          <button><Link to="/login">Login</Link></button>
+        <button ><Link to="/signup" className="link-text">Signup</Link></button>
+        <button><Link to="/login" className="link-text" >Login</Link></button>
+
         </div>
 
          }

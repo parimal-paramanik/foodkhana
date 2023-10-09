@@ -8,7 +8,7 @@
   margin-top: 0px;
 }
 .signupcss {
-  max-width: 420px;
+  max-width: 450px;
   margin: auto;
   padding: 20px;
   background-color: #534e4e;
@@ -45,6 +45,7 @@
     cursor: pointer;
     font-weight: 600;
     font-size: 13px;
+    
   }
   
   .signupcss input[type="submit"]:hover {
