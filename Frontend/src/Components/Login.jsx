@@ -59,8 +59,8 @@ function Login({isAuth,change}) {
   }
 
   return (
-    <div>
-      <form className="login-form " onSubmit={handleSubmit}>
+    <div id="background">
+      <form className="login-form"onSubmit={handleSubmit}>
         <label>
           Email:
           <input

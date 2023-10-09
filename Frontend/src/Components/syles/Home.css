@@ -11,16 +11,16 @@
   .navbar {
     display: flex;
     margin-top: 0.5px;
-    height: 40px;
+    height: 70px;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(236, 43, 43);
+    background-color: hsl(0, 7%, 11%);
     padding: 10px;
   }
   
   .logo img {
-    width: 200px;
-    height: 150px;
+    width: 220px;
+    height: 80px;
   }
   
   .container {

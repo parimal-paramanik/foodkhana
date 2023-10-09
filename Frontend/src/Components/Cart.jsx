@@ -93,19 +93,22 @@ const Cart = () => {
             padding: "10px",
             boxSizing: "border-box",
             transition: "box-shadow 0.3s ease-in-out", 
-            boxShadow: "0 0 5px red", 
-            borderRadius: "8px", 
+            boxShadow: "0 0 5px black", 
+            borderRadius: "3px", 
+            width:"330px",
+            height:"400px",
+            margin:"auto"
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.boxShadow = "0 0 10px blue"; 
-            e.currentTarget.style.transform = "scale(1.05)";
+            // e.currentTarget.style.boxShadow = "0 0 10px blue"; 
+            e.currentTarget.style.transform = "scale(1.1)";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.boxShadow = "0 0 5px rgba(0, 0, 0, 0.3)"; 
+            // e.currentTarget.style.boxShadow = "0 0 5px rgba(0, 0, 0, 0.3)"; 
             e.currentTarget.style.transform = "scale(1)"
           }}
           >
-            <img src={food.image} alt="img" style={{ width: '300px', height: '250px' }} />
+            <img src={food.image} alt="img" style={{ width:"100%", height: "200px" }} />
             <h3>{food.name}</h3>
             <p>Price: $ {food.price}</p>
             <p>QNTY: {food.quantity}</p>

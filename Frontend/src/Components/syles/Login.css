@@ -1,27 +1,40 @@
+#background {
+  background: url("https://img.freepik.com/free-photo/exploding-burger-with-vegetables-melted-cheese-black-background-generative-ai_157027-1734.jpg?w=2000");
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+}
 .login-form {
-    max-width: 400px;
-    margin: 0 auto;
+    max-width: 420px;
+    margin: auto;
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: #534e4e;
     border-radius: 5px;
+    margin-top: 35px;
   }
   
   .login-form label {
     display: block;
     margin-bottom: 5px;
+    color: #fff;
   }
   
   .login-form input[type="text"],
   .login-form input[type="password"] {
-    width: 100%;
+    width: 96%;
     padding: 8px;
+    
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
   }
   
   .login-form button[type="submit"] {
-    width: 100%;
+    width: 100px;
+    margin: auto;
+    align-items: center;
     padding: 10px;
     background-color: #4caf50;
     color: #fff;
@@ -50,4 +63,5 @@
   .login-form button[type="submit"]:disabled:hover {
     background-color: #ccc;
   }
+  
   
