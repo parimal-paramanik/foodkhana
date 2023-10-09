@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
 import "../Components/syles/address.css";
 
+const formData= {
+    name :"",
+    address: "",
+    city : "",
+    postalCode: ""
+}
+
 const Addressform = () => {
-  const [name, setName] = useState('');
-  const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [postalCode, setPostalCode] = useState('');
+  const [addressdetails, setAddressdetails]= useState(formData)
+
+  const fieldChanged = (e)=>{
+     setAddressdetails({...addressdetails ,[e.target.name]: e.target.value })
+  }
 
   return (
     <div className='address-form-container'>
@@ -15,33 +23,37 @@ const Addressform = () => {
 
           <input
             type="text"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter Your Name"
+            name='Name' 
+            // value={name}
+            onChange={(e) => fieldChanged(e)}
           />
         </div>
         <div className="form-group">  
           <input
             type="text"
-            placeholder="Address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            placeholder=" Enter Your Address"
+            // value={name}
+            name='Address' 
+            onChange={(e) => fieldChanged(e)}
           />
         </div>
         <div className="form-group">
           <input
             type="text"
-            placeholder="City"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
+            placeholder=" Enter Your City Name"
+            // value={name}
+            name='City' 
+            onChange={(e) => fieldChanged(e)}
           />
         </div>
         <div className="form-group">
           <input
             type="text"
-            placeholder="Postal Code"
-            value={postalCode}
-            onChange={(e) => setPostalCode(e.target.value)}
+            placeholder=" Enter your Postal Code"
+            // value={name}
+            name='Postal Code' 
+            onChange={(e) => fieldChanged(e)}
           />
         </div>
         <button>Complete Payment</button>
